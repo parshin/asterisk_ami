@@ -1,0 +1,49 @@
+INFO     [2017-11-16 09:44:18,678]   Caller ID: u'83452284385'
+INFO     [2017-11-16 09:44:18,908]       Client: u'Молчанова Наталья Владимировна / ТюменНИИгипрогаз'
+
+Traceback (most recent call last):
+  File "asterisk_test.py", line 82, in <module>
+    main(sys.argv[1:])
+  File "asterisk_test.py", line 63, in main
+    main2()
+  File "asterisk_test.py", line 48, in main2
+    manager.serve_forever()
+  File "/mnt/data/work/PycharmProjects/python_asterisk_pkg/Asterisk/Manager.py", line 483, in serve_forever
+    self._dispatch_packet(packet)
+  File "/mnt/data/work/PycharmProjects/python_asterisk_pkg/Asterisk/Manager.py", line 387, in _dispatch_packet
+    self.on_Event(packet)
+  File "asterisk_test.py", line 30, in on_Event
+    result_setvar = MyManager.Setvar(self, event['Channel'], 'CALLERID(Name)', clientname)
+  File "/mnt/data/work/PycharmProjects/python_asterisk_pkg/Asterisk/Manager.py", line 1044, in Setvar
+    return self._translate_response(self.read_response(id))
+  File "/mnt/data/work/PycharmProjects/python_asterisk_pkg/Asterisk/Manager.py", line 409, in _translate_response
+    raise ActionFailed(packet.Message)
+Asterisk.Manager.ActionFailed: py-Asterisk action failed: No such channel
+
+
+
+ERROR    [2017-11-28 09:48:35,611] Unknown packet type detected: {u'AMAFlags': u'DOCUMENTATION', u'AnswerTime': u'2017-11-28 09:48:24', u'Disposition': u'ANSWERED', u'UserField': '', u'Did': '', u'BillableSeconds': u'11', u'DestinationChannel': u'PJSIP/157-0000028f', u'LastData': u'PJSIP/157/sip:157@192.168.194.238:5060,15,TtrIb(func-apply-sipheaders^s^1)', u'LastApplication': u'Dial', u'StartTime': u'2017-11-28 09:48:20', u'Duration': u'15', u'EndTime': u'2017-11-28 09:48:35', u'UniqueID': u'1511844500.2627'}
+
+
+Traceback (most recent call last):
+  File "asterisk_test.py", line 82, in <module>
+    main(sys.argv[1:])
+  File "asterisk_test.py", line 63, in main
+    main2()
+  File "asterisk_test.py", line 48, in main2
+    manager.serve_forever()
+  File "/mnt/data/work/PycharmProjects/python_asterisk_pkg/Asterisk/Manager.py", line 487, in serve_forever
+    self._dispatch_packet(packet)
+  File "/mnt/data/work/PycharmProjects/python_asterisk_pkg/Asterisk/Manager.py", line 387, in _dispatch_packet
+    self.on_Event(packet)
+  File "asterisk_test.py", line 25, in on_Event
+    rj = r.json()
+  File "/usr/local/lib/python2.7/dist-packages/requests/models.py", line 892, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 382, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
